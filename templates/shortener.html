@@ -5,17 +5,16 @@
 </head>
 <body>
     <h1>URL-Shortener</h1>
-    <form>
-        <input type="text" name="lastname">
-
-         <input type="submit" value="Submit">
+    <form action="" method="" >
+        <input type="text" name="long">
+        <input type="submit" value="Shorten">
     </form>
 
     <h2>Lista skróconych linków użytkownika</h2>
 
     <ul>
-    {% for item in links %}
-        <li><a href="{{ item['short'] }}">{{ item['full'] }}</a></li>
+    {% for key in links %}
+        <li><a href="{{ item[key] }}">{{ key }}</a></li>
     {% endfor %}
     </ul>
 
