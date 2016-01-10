@@ -3,8 +3,8 @@ import random
 from flask import Flask, request, redirect, render_template, session
 from werkzeug.debug import DebuggedApplication
 
-# app_url = '/okraskaj/urlshortener'
-app_url = ''
+app_url = '/okraskaj/urlshortener'
+#app_url = ''
 app = Flask(__name__)
 app.secret_key = '$a&*F*Gd#!s#(FGH&*@#DSc'
 
@@ -35,14 +35,6 @@ def index():
             return render_template('shortener.html', username=username, links=users_links[username])
 
     #session.pop('username', None)
-
-
-
-
-@app.route('/mojelinki', methods=['GET', 'POST'])
-def moje_linki():
-    request.get_data()
-    return render_template('moje_linki.html', links=links)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -84,6 +76,11 @@ def register():
             return render_template('register_failure.html', username=username)
 
     return render_template('register.html')
+
+@app.route(app_url+'/<url_code>',methods=['GET','POST'])
+def redirect_link(url_code):
+    link = links[url_code]
+    return redirect(link)
 
 
 if __name__ == '__main__':
