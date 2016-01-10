@@ -16,12 +16,14 @@
          <th>Link-pełny</th>
          <th>Link- skrócony</th>
      </tr>
-    {% for key in links %}
-        <tr>
-            <td><a href="{{ links[key] }}">{{ links[key] }}</a></td>
-            <td><a href="{{ links[key] }}">{{ key }}</a></td>
-        </tr>
-    {% endfor %}
+
+        {% for key in links %}
+            <tr>
+                <td><a href="{{ links[key] }}">{{ links[key] }}</a></td>
+                <td><a href="{{ links[key] }}">{{ key }}</a></td>
+            </tr>
+        {% endfor %}
+
     </table>
 </body>
 </html>

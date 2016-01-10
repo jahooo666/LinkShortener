@@ -16,7 +16,7 @@ users = {'admin': 'admin'}
 users_links={}
 users_links['admin'] = {}
 
-@app.route(app_url + '/',methods=['POST','GET'])
+@app.route(app_url + '/', methods=['POST','GET'])
 def index():
     if 'username' not in session:
         return redirect(app_url + "/login")
@@ -31,7 +31,7 @@ def index():
             links[short]=long
             users_links[username][short]=long
             return render_template('shortener.html', username=username, links=users_links[username])
-        elif request.method== 'POST':
+        elif request.method== 'GET':
             return render_template('shortener.html', username=username, links=users_links[username])
 
     #session.pop('username', None)
