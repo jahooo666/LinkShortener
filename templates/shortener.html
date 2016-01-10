@@ -5,19 +5,23 @@
 </head>
 <body>
     <h1>URL-Shortener</h1>
-    <form action="" method="" >
+    <form action="" method="POST" >
         <input type="text" name="long">
         <input type="submit" value="Shorten">
     </form>
 
-    <h2>Lista skróconych linków użytkownika</h2>
 
-    <ul>
+     <table border="1">
+     <tr>
+         <th>Link-pełny</th>
+         <th>Link- skrócony</th>
+     </tr>
     {% for key in links %}
-        <li><a href="{{ links[key] }}">{{ key }}</a></li>
+        <tr>
+            <td><a href="{{ links[key] }}">{{ links[key] }}</a></td>
+            <td><a href="{{ links[key] }}">{{ key }}</a></td>
+        </tr>
     {% endfor %}
-    </ul>
-
-
+    </table>
 </body>
 </html>
